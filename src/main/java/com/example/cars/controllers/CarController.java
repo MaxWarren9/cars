@@ -2,6 +2,8 @@ package com.example.cars.controllers;
 
 import com.example.cars.model.dto.request.CarInfoRequest;
 import com.example.cars.model.dto.response.CarInfoResponse;
+import com.example.cars.service.CarService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
@@ -9,7 +11,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/cars")
+@RequiredArgsConstructor
 public class CarController {
+        private final CarService carService;
+
         @PostMapping
         public CarInfoResponse createCar(@RequestBody CarInfoRequest request) {
             return new CarInfoResponse();
