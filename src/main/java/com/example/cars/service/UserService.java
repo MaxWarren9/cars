@@ -1,14 +1,58 @@
 package com.example.cars.service;
 
+import com.example.cars.model.dto.request.UserInfoRequest;
+import com.example.cars.model.dto.response.UserInfoResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.stereotype.Service;
+
+import java.util.Collections;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
 public class UserService {
-    public void method() {
-        log.info("method called");
+
+    public UserInfoResponse createUser(UserInfoRequest request) {
+        if (!EmailValidator.getInstance().isValid(request.getEmail())) {
+            return null;
+        }
+        return UserInfoResponse.builder()
+                .email(request.getEmail())
+                .password(request.getPassword())
+                .age(request.getAge())
+                .gender(request.getGender())
+                .firstName(request.getFirstName())
+                .lastName(request.getLastName())
+                .middleName(request.getMiddleName())
+                .build();
+    }
+
+    public UserInfoResponse getUser(Long id) {
+        return null;
+    }
+
+    public UserInfoResponse updateUser(Long id, UserInfoRequest request) {
+        if (!EmailValidator.getInstance().isValid(request.getEmail())) {
+            return null;
+        }
+        return UserInfoResponse.builder()
+                .email(request.getEmail())
+                .password(request.getPassword())
+                .age(request.getAge())
+                .gender(request.getGender())
+                .firstName(request.getFirstName())
+                .lastName(request.getLastName())
+                .middleName(request.getMiddleName())
+                .build();
+    }
+
+    public void deleteUser(Long id) {
+    }
+
+    public List<UserInfoResponse> getAllUsers() {
+        return Collections.emptyList();
     }
 }
