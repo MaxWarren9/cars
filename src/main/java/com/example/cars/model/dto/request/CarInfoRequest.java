@@ -6,6 +6,7 @@ import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 
 @Getter
 @Setter
@@ -18,9 +19,10 @@ public class CarInfoRequest {
     String email;
     String password;
     String modelName;
-    String modelYear;
+    Integer year;
     Color color;
+    Boolean isNew;
     @NotNull
-    Long price;
+    BigDecimal price;
     Float engineCapacity;
 }

@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static com.example.cars.constants.Constants.USER_API;
+import static com.example.cars.constants.Constants.USERS;
 @Tag(name = "Пользователь")
 @RestController
-@RequestMapping(USER_API)
+@RequestMapping(USERS)
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
@@ -26,7 +26,7 @@ public class UserController {
         return userService.createUser(request);
     }
 
-    @PostMapping("/{id}")
+    @GetMapping("/{id}")
     @Operation(summary = "Получить пользователя по id")
     public UserInfoResponse getUser(@PathVariable Long id) {
         return userService.getUser(id);

@@ -3,7 +3,6 @@ package com.example.cars.controllers;
 import com.example.cars.model.dto.request.CarInfoRequest;
 import com.example.cars.model.dto.response.CarInfoResponse;
 import com.example.cars.service.CarService;
-import com.example.cars.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -14,10 +13,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-import static com.example.cars.constants.Constants.CAR_API;
-@Tag(name = "Cars")
+import static com.example.cars.constants.Constants.CARS;
+@Tag(name = "Автомобили")
 @RestController
-@RequestMapping(CAR_API)
+@RequestMapping(CARS)
 @RequiredArgsConstructor
 public class CarController {
     private final CarService carService;
@@ -56,7 +55,7 @@ public class CarController {
                 @ApiResponse(responseCode = "404", description = "Не найден"),
                 @ApiResponse(responseCode = "401", description = "Не авторизован"),
         })
-        @Operation(summary = "Получить все авто")
+        @Operation(summary = "Получить список автомобилей")
         public List<CarInfoResponse> getAllCars() {
             return carService.getAllCars();
         }
