@@ -3,6 +3,7 @@ package com.example.cars.model.db.entity;
 
 import com.example.cars.model.Gender;
 import com.example.cars.model.UserStatus;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -45,6 +46,7 @@ public class User {
     UserStatus status;
 
     @OneToMany
+    @JsonManagedReference(value = "driver_cars")
     List<Car> cars;
 }
 

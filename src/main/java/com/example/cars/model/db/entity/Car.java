@@ -3,10 +3,13 @@ import com.example.cars.model.CarStatus;
 import com.example.cars.model.Color;
 import com.example.cars.model.Gender;
 import com.example.cars.model.UserStatus;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -45,5 +48,6 @@ public class Car {
     Boolean isNew;
 
     @ManyToOne
+    @JsonBackReference(value = "driver_cars")
     User user;
 }

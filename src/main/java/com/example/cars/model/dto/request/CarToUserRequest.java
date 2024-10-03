@@ -1,12 +1,10 @@
 package com.example.cars.model.dto.request;
-import com.example.cars.model.Color;
+
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
 
 @Getter
 @Setter
@@ -14,13 +12,9 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class CarInfoRequest {
-    @NotEmpty
-    String modelName;
-    Integer year;
-    Color color;
-    Boolean isNew;
+public class CarToUserRequest {
     @NotNull
-    BigDecimal price;
-    Float engineCapacity;
+    private Long carId;
+    @NotNull
+    private Long userId;
 }
